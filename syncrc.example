@@ -1,0 +1,5 @@
+# hostname of source
+host maohz.eva2.nics.info
+user maohz12 #Username here
+
+max_size 2e4 # Bytes
