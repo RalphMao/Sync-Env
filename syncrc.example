@@ -1,5 +1,18 @@
 # hostname of source
 host maohz.eva2.nics.info
-user maohz12 #Username here
+# Username here
+user user 
 
-max_size 2e4 # Bytes
+max_size 2e4 # in Bytes, files exceed the size will be ignored
+
+time_limit 1 # max time for scp, otherwise ignored
+
+# files like *.bin will be ignored
+exclude_suffix bin 
+exclude_suffix txt
+
+exclude_command git # command like "git ***" will be ignored
+
+# Force synchronization between <local_dir>:<remote_dir> 
+mirror /home/user/test/:/home/user/true_test/
+mirror /home/user/:/home/user2/
