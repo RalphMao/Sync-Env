@@ -20,13 +20,9 @@ Step 3: enable no-password scp
 
 ## Basic usages:
 
-se [filename]
+se [filename] -- Synchronize it with the remote file(if the file does not exist, create an empty file first)
 
-    Create an empty file and synchronize it with the remote file
-
-se [command]
-
-    Run any command in the synchronized environment. Any file in the arguments will be detected and synchronized.
+se [command] --Run any command in the synchronized environment. Any file in the arguments will be detected and synchronized.
 
 ## Notes:
 

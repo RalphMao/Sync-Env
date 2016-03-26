@@ -184,7 +184,7 @@ def main():
     params = parse_rc(logger)
     if len(args) == 0:
         logger.info('Usage: se <command>')
-    if len(args) == 1:
+    if len(args) == 1 and not os.path.exists(args[0]):
         os.system('touch ' + args[0])
     keep_excute = handle_args(args, params, logger)
 
