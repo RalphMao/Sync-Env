@@ -1,12 +1,16 @@
-# hostname of source
-host maohz.eva2.nics.info
+# Hostname of source
+host vps1.stupid.info
 # Username here
-user user 
+user fool
 
-max_size 2e4 # in Bytes, files exceed the size will be ignored
+# Optional fields below
+# ========================
+max_size 2e4 # in Bytes. files exceed the size will be ignored
 
 time_limit 1 # max time for scp, otherwise ignored
 
+# Repeated fields below
+# ========================
 # files like *.bin will be ignored
 exclude_suffix bin 
 exclude_suffix txt

@@ -4,6 +4,7 @@ import os, sys
 import logging
 import filecmp
 import log
+import time
 
 def log_init():
     # logging.basicConfig()
@@ -145,17 +146,16 @@ def handle_args(args, params, logger):
                 logger.warning('Please choose: Overwrite(Y) /Anti-overwrite(A) /Merge(M) /Ignore ')
                 choice = raw_input()
                 if choice == 'Y':
-                    os.rename(abs_name, '{}/local-{}.bak'.format(bak_dir, base_name))
+                    os.rename(abs_name, '{}/local-{}-{}.bak'.format(bak_dir, base_name, time.ctime()))
                     os.rename(tmp_name, abs_name)
                     logger.info('Overwrite local file')
 
                 elif choice == 'A':
-
                     cmd = 'scp {2} {0}@{1}:{2} >{3}/scp-anti-{0}-{1} 2>&1 '.format(params['user'], params['host'], target_abs_name, bak_dir)
                     flag = os.system(cmd)
                     if flag == 0:
                         logger.info('Anti-overwrite remote file')
-                        os.rename(tmp_name, '{}/remote-{}.bak'.format(bak_dir, base_name))
+                        os.rename(tmp_name, '{}/remote-{}-{}.bak'.format(bak_dir, base_name, time.ctime()))
                     else:
                         logger.warning('Anti-overwrite failed! Info:')
                         logger.info('%s'%(open('{2}/sync-env-anti-{0}-{1}'.format(params['user'], params['host'], bak_dir)).read()))
